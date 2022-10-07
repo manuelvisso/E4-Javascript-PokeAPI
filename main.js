@@ -23,10 +23,10 @@ const notFoundError = () => {
 };
 
 const pokeFetch = async () => {
+  let pokeId = inputSearch.value;
   try {
-    const response = await fetch(`${baseURL}${inputSearch.value}`);
+    const response = await fetch(`${baseURL}${pokeId}`);
     const data = await response.json();
-    console.log(data);
     return data;
   } catch {
     notFoundError();
@@ -61,7 +61,7 @@ const renderPokemon = async (e) => {
           .map((tipo) => {
             return tipo.type.name;
           })
-          .join(", ")}.
+          .join(", ")}
         </td>
       </tr>
       <tr>
@@ -70,7 +70,7 @@ const renderPokemon = async (e) => {
           .map((habilidad) => {
             return habilidad.ability.name;
           })
-          .join(", ")}.
+          .join(", ")}
         </td>
       </tr>
       <tr>
